@@ -53,6 +53,7 @@ def main():
     sprite_y = 10
     offset_x_max = len(map[0])-20
     offset_y_max = len(map)-20
+    print(offset_x_max, offset_y_max)
     offset_x = offset_x_max//2
     offset_y = offset_y_max//2
     while 1:
@@ -76,7 +77,7 @@ def main():
                     if not ("s" in restrict_move):
                         if (offset_y == 0 and sprite_y < 10) or (offset_y == offset_y_max and sprite_y < 20):
                             sprite_y += 1
-                        elif offset_y < 4:
+                        elif offset_y < offset_y_max:
                             offset_y += 1
                 elif event.unicode == 'a':
                     change_angle = 180
@@ -90,7 +91,7 @@ def main():
                     if not ("d" in restrict_move):
                         if (offset_x == 0 and sprite_x < 10) or (offset_x == offset_x_max and sprite_x < 20):
                             sprite_x += 1
-                        elif offset_x < 10:
+                        elif offset_x < offset_x_max:
                             offset_x += 1
 
                 sprite_rotated = pygame.transform.rotate(sprite_original, change_angle-angle)
